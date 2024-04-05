@@ -10,7 +10,7 @@
     "arrowParens": "always",
     "overrides": [
         {
-            "files": "*.{html,jsx,tsx}",
+            "files": "*.{html,jsx,tsx,md}",
             "options": {
                 "tabWidth": 2
             }
