@@ -8,6 +8,10 @@
     "bracketSpacing": true,
     "bracketSameLine": true,
     "arrowParens": "always",
+    "plugins": [
+        "/usr/local/lib/node_modules/prettier-plugin-css-order/src/main.mjs"
+    ],
+    "cssDeclarationSorterOrder": "alphabetical",
     "overrides": [
         {
             "files": "*.{html,jsx,tsx,md}",
