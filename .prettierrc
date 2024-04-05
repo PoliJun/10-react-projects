@@ -6,6 +6,14 @@
     "jsxSingleQuote": false,
     "trailingComma": "all",
     "bracketSpacing": true,
-    "jsxBracketSameLine": true,
-    "arrowParens": "always"
+    "bracketSameLine": true,
+    "arrowParens": "always",
+    "overrides": [
+        {
+            "files": "*.{html,jsx,tsx}",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }
