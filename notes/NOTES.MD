@@ -2,28 +2,30 @@
 
 ## Intro
 
-- Developed by Facebook 2011
-- Use components to build UI
-- Build Modular Apps
-- Learn Once, Write Anywhere
-- React is a library for building user interfaces
+-   Developed by Facebook 2011
+-   Use components to build UI
+-   Build Modular Apps
+-   Learn Once, Write Anywhere
+-   React is a library for building user interfaces
 
 ## render
 
 ```jsx
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
 );
 ```
 
 ## Component
 
-- Component names must start with a capital letter
-- Reusable
+-   Component names must start with a capital letter
+-   Reusable
 
-## React.createElement
+## JSX
+
+### React.createElement
 
 ```jsx
 React.createElement("div", { className: "App" }, "Hello World");
@@ -33,22 +35,67 @@ nested elements
 
 ```jsx
 React.createElement(
-  "div",
-  { className: "App" },
-  React.createElement("h1", null, "Hello World"),
+    "div",
+    { className: "App" },
+    React.createElement("h1", null, "Hello World"),
 );
 ```
-
-### JSX
 
 Then, we have jsx
 
 ```jsx
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1>Hello World</h1>
+        </div>
+    );
+}
+```
+
+### Only one root element
+
+```jsx
+function App() {
+    return (
+        <div className="App">
+            {" "}
+            {/* root element */}
+            <h1>Hello World</h1>
+            <h2>Goodbye World</h2>
+        </div>
+    );
+}
+```
+
+### JSX elements
+
+-   self-closing tags
+    -   `<img src="image.jpg" alt="image" />`
+    -   `<input type="text" />`
+    -   `<br />`
+    -   `<hr />`
+-   className instead of class
+-   htmlFor instead of for
+-   camelCase property naming convention
+-   style attribute
+-   comments
+    -   `{/* comment */}`
+    -   `{/** comment */}`
+    -   `{/**/}`
+-   Fragments
+    Explain: React.Fragment is a built-in component that allows us to group multiple elements without adding extra nodes to the DOM.
+
+    -   `<React.Fragment></React.Fragment>`
+    -   `<> </>`
+
+### Curly braces {}
+
+-   `{}` is used to evaluate JavaScript expressions
+
+```jsx
+function App() {
+    const name = "John Doe";
+    return <h1>Hello {name}</h1>;
 }
 ```

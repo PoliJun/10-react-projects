@@ -12,7 +12,7 @@
     "cssDeclarationSorterOrder": "alphabetical",
     "overrides": [
         {
-            "files": "*.{html,jsx,tsx,md}",
+            "files": "*.{html,jsx,tsx}",
             "options": {
                 "tabWidth": 2
             }

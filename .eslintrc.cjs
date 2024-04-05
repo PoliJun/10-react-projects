@@ -19,5 +19,7 @@ module.exports = {
             { allowConstantExport: true },
         ],
         "import/newline-after-import": "warn",
+        "react/no-unused-prop-types": "warn",
+        "no-unused-vars": "warn",
     },
 };
