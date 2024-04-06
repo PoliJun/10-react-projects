@@ -813,3 +813,42 @@ const ComponentB = () => {
     );
 };
 ```
+
+##### **\*learn about** `UserContext.Provider` and `UserContext.Consumer`
+
+In the context of React, a `Consumer` is a component that subscribes to context changes. This comes from the newer Context API where you create a context object using `React.createContext()`, and it returns an object with a `Provider` and a `Consumer` in it.
+
+The `Provider` component is used higher in the tree and accepts a `value` prop. The `Consumer` component is used anywhere below the provider in the tree and reads the current context value from the closest matching `Provider` above it in the tree.
+
+Here's a basic example:
+
+```jsx
+import React, { createContext } from 'react';
+
+// Create a Context object
+const MyContext = createContext(defaultValue);
+
+class MyComponent extends React.Component {
+  render() {
+    return (
+      // Use the Provider to pass the current context value to the tree below
+      <MyContext.Provider value={/* some value */}>
+        <AnotherComponent />
+      </MyContext.Provider>
+    );
+  }
+}
+
+function AnotherComponent() {
+  return (
+    // Use the Consumer to read the current context value
+    <MyContext.Consumer>
+      {value => /* render something based on the context value */}
+    </MyContext.Consumer>
+  );
+}
+```
+
+In this example, `AnotherComponent` uses `MyContext.Consumer` to read the current context value from the closest `MyContext.Provider` above it in the tree.
+
+However, in your provided code, the `useContext` Hook is being used, which is a simpler way to consume context that doesn't require a `Consumer` component. The `useContext` Hook takes a context object as an argument and returns the current context value, just like `Context.Consumer`.
