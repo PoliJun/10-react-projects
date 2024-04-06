@@ -396,7 +396,7 @@ function App() {
 }
 ```
 
-***Why the code will cause alert Immediately when page refresh?***
+**_Why the code will cause alert Immediately when page refresh?_**
 
 The reason the alert is triggered immediately when the page refreshes is because of this line:
 
@@ -439,5 +439,3 @@ function App() {
 ```
 
 In this modified code, `handleClick` now takes an additional `event` parameter, and the `onClick` handler passes the `event` object to `handleClick`.
-
-
