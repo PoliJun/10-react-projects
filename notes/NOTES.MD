@@ -353,3 +353,91 @@ function App() {
     return <FaReact />;
 }
 ```
+
+## Event Handling
+
+React supports a variety of event handlers that correspond to native DOM events. Here's a list of them:
+
+[Events](./OTHER.md/)
+
+Remember, in React, these event handlers are written in camelCase, not lowercase.
+
+### Button
+
+```jsx
+const Button = () => {
+    const handleClick = (a, b) => {
+        alert(a + b);
+    };
+    return <button onClick={() => handleClick(2, 3)}>Button</button>;
+};
+
+export default Button;
+
+function App() {
+    return <Button />;
+}
+```
+
+#### Notice
+
+```jsx
+const Button = () => {
+    const handleClick = (a, b) => {
+        alert(a + b);
+    };
+    return <button onClick={handleClick(2, 3)}>Button</button>;
+};
+
+export default Button;
+
+function App() {
+    return <Button />;
+}
+```
+
+***Why the code will cause alert Immediately when page refresh?***
+
+The reason the alert is triggered immediately when the page refreshes is because of this line:
+
+```jsx
+return <button onClick={handleClick(2, 3)}>Button</button>;
+```
+
+In this line, `handleClick(2,3)` is being executed immediately when the `Button` component is rendered, not when the button is clicked.
+
+To fix this, you should pass a function to `onClick` that calls `handleClick(2,3)` when the button is clicked. You can do this by using an arrow function, like this:
+
+```jsx
+return <button onClick={() => handleClick(2, 3)}>Button</button>;
+```
+
+In this corrected code, `() => handleClick(2,3)` is a new function that calls `handleClick(2,3)` when it's invoked. This new function is only invoked when the button is clicked, so the alert only appears when the button is clicked.
+
+**_When click the button, the function defined on onClick will receive an event param, is it right?_**
+
+Yes, that's correct. In React, every event handler, like the `onClick` handler, receives an event object as its first argument. This event object is a SyntheticEvent, which is a cross-browser wrapper around the browser's native event.
+
+However, in your current code, you're not using this event object. You're calling `handleClick` with two hard-coded arguments `(2,3)`. If you want to use the event object, you could modify your code like this:
+
+```jsx
+const Button = () => {
+    const handleClick = (event, a, b) => {
+        alert(a + b);
+        console.log(event); // Logs the event object
+    };
+    return (
+        <button onClick={(event) => handleClick(event, 2, 3)}>Button</button>
+    );
+};
+
+export default Button;
+
+function App() {
+    return <Button />;
+}
+```
+
+In this modified code, `handleClick` now takes an additional `event` parameter, and the `onClick` handler passes the `event` object to `handleClick`.
+
+

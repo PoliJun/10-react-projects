@@ -119,3 +119,58 @@ b = { age: 30 }; // Error
 ```
 
 In this example, `NamedAndAged` is an intersection type and must have both a `name` property (from `Named`) and an `age` property (from `Aged`).
+
+## React Events
+
+In React, events are handled using synthetic events, which are similar to native DOM events but with some differences. Here are some key points about React events:
+
+1. **Event Names:**
+
+    - React event names are camelCase, e.g., `onClick`, `onChange`, `onSubmit`.
+    - In HTML, event names are lowercase, e.g., `onclick`, `onchange`, `onsubmit`.
+
+2. **Event Handlers:**
+
+    - Event handlers in React are functions that are called when an event occurs.
+    - Event handlers are passed as props to React elements.
+
+3. **Preventing Default Behavior:**
+
+    - To prevent the default behavior of an event (e.g., form submission), you can call `event.preventDefault()` in the event handler.
+
+4. **Event Parameters:**
+    - Event handlers in React receive a synthetic event object as the first parameter.
+    - You can access the event properties like `event.target.value` to get the value of an input field.
+
+Here's an example of handling a button click event in React:
+
+```jsx
+const Button = () => {
+    const handleClick = (a, b) => {
+        alert(a + b);
+    };
+    return <button onClick={() => handleClick(2, 3)}>Button</button>;
+};
+
+export default Button;
+
+function App() {
+    return <Button />;
+}
+```
+
+#### [Official Link](https://react.dev/learn/responding-to-events)
+
+NOTICE: Passing a function, not calling a function:
+
+correct:
+
+```jsx
+<button onClick={() => handleClick(2, 3)}>Button</button>
+```
+
+incorrect:
+
+```jsx
+<button onClick={handleClick(2, 3)}>Button</button>
+```
