@@ -232,3 +232,124 @@ function App({ user }) {
 ```
 
 **Summary:** Ampersand is used to render the last value if all values are truthy. If any value is falsy, it returns the first falsy value. This is popular for conditional rendering.
+
+## import CSS
+
+```jsx
+import "./App.css";
+```
+
+### React Bootstrap
+
+[react-bootstrap](https://react-bootstrap.github.io/)
+
+Or search google for react bootstrap
+
+Install React Bootstrap
+
+```bash
+npm install react-bootstrap bootstrap
+```
+
+#### Button
+
+```jsx
+import { Button } from "react-bootstrap";
+
+function App() {
+    return <Button variant="primary">Primary</Button>;
+}
+```
+
+Explain props: `variant` is a prop that changes the appearance of the button.
+
+### Tailwind CSS
+
+[Tailwind CSS](https://tailwindcss.com/)
+
+**Guide:**
+
+The installation guide for Tailwind CSS using the Tailwind CLI tool involves the following steps:
+
+1. Install Tailwind CSS via npm with the command `npm install -D tailwindcss`.
+2. Create a `tailwind.config.js` file which will hold configuration settings.
+3. Add the paths to all template files in the `tailwind.config.js` file, using the `content` property.
+4. Add the `@tailwind` directives to the main CSS file for each of Tailwind's layers: base, components, and utilities.
+5. Run the Tailwind CLI tool with the command `npx tailwindcss -i ./src/input.css -o ./src/output.css --watch` to scan template files and build the CSS.
+6. Include the compiled CSS file in the HTML `<head>` section and start using Tailwind's utility classes to style the content.
+
+**Install Tailwind CSS**
+
+```bash
+npm install -D tailwindcss
+npx tailwindcss init
+```
+
+**Configure your template paths**
+
+copy config file content to your project
+
+`tailwind.config.js`:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ["./src/**/*.{html,js}"],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+};
+```
+
+**Add the Tailwind directives to your CSS**
+
+`src/index.css`:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+**Start the Tailwind CLI build process**
+
+```bash
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+```
+
+**Start using Tailwind in your HTML**
+
+```html
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="./output.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    </body>
+</html>
+```
+
+### React Icons
+
+[react-icons](https://react-icons.github.io/react-icons/)
+
+**Install React Icons**
+
+```bash
+npm install react-icons
+```
+
+**Usage**
+
+```jsx
+import { FaReact } from "react-icons/fa";
+
+function App() {
+    return <FaReact />;
+}
+```
