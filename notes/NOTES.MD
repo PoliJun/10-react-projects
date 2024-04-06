@@ -945,3 +945,116 @@ function Counter() {
 
 export default Counter;
 ```
+
+### `useRef`
+
+**Intro:** `useRef` is a hook that returns a mutable ref object whose `.current` property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.
+
+**Syntax:**
+
+```jsx
+const refContainer = useRef(initialValue);
+```
+
+**Parameters:**
+
+-   `initialValue`: The initial value of the ref object.
+-   `refContainer.current`: The current value of the ref object.
+-   `refContainer.current = value`: Assign a new value to the ref object.
+-   `refContainer.current.focus()`: Access the DOM node or React element.
+-   `refContainer.current = null`: Reset the ref object.
+-   `refContainer.current?.focus()`: Optional chaining.
+-   `refContainer.current?.current`: Nested ref.
+-   `refContainer.current = useRef(null)`: Nested ref initialization.
+
+**Example:**
+
+```jsx
+import React, { useRef } from "react";
+
+function TextInputWithFocusButton() {
+    const inputEl = useRef(null);
+    const onButtonClick = () => {
+        // `current` points to the mounted text input element
+        inputEl.current.focus();
+    };
+
+    return (
+        <div>
+            <input ref={inputEl} type="text" />
+            <button onClick={onButtonClick}>Focus the input</button>
+        </div>
+    );
+}
+
+export default TextInputWithFocusButton;
+```
+
+### Custom Hooks
+
+**Intro:** Custom hooks are JavaScript functions whose names start with "use" and may call other hooks. They allow you to reuse stateful logic across multiple components.
+
+**`useState` Example:**
+
+```jsx
+// define a custom hook
+import { useState } from "react";
+
+function useCounter(initialCount) {
+    const [count, setCount] = useState(initialCount);
+
+    const increment = () => {
+        setCount(count + 1);
+    };
+
+    const decrement = () => {
+        setCount(count - 1);
+    };
+
+    return { count, increment, decrement };
+}
+
+export default useCounter;
+
+// usage
+import React from "react";
+import useCounter from "./useCounter";
+
+function Counter() {
+    const { count, increment, decrement } = useCounter(0);
+
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+        </div>
+    );
+}
+```
+
+**`useEffect` Example:**
+
+```jsx
+// define a custom hook
+import { useEffect } from "react";
+
+function useDocumentTitle(title) {
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+}
+
+export default useDocumentTitle;
+
+// usage
+
+import React from "react";
+import useDocumentTitle from "./useDocumentTitle";
+
+function App() {
+    useDocumentTitle("Custom Hook Example");
+
+    return <h1>Custom Hook Example</h1>;
+}
+```
