@@ -729,3 +729,35 @@ function App() {
     );
 }
 ```
+
+## Props transfer through components
+
+
+### Prop Drilling
+
+Prop drilling is the process of passing props from a parent component to a deeply nested child component.
+
+```jsx
+// App
+import ComponentA from "./ComponentA";
+
+const App = () => {
+    return <ComponentA />;
+};
+
+// ComponentA
+import ComponentB from "./ComponentB";
+
+const ComponentA = ({ name }) => {
+    return <ComponentB name={name} />;
+};
+
+// ComponentB
+const ComponentB = ({ name }) => {
+    return <ComponentC name={name} />;
+};
+// ...
+```
+
+### Context API
+
