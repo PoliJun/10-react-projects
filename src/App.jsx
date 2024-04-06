@@ -1,11 +1,14 @@
-import { BrowserRouter, Routes } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./styles/App.scss";
+import CounterPage from "./pages/CounterPage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes> </Routes>
+        <Routes> 
+          <Route path="counter" element={<CounterPage />}/>
+        </Routes>
       </BrowserRouter>
     </>
   );

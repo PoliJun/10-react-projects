@@ -1,0 +1,36 @@
+.counter {
+    background-color: #1e1f21;
+    min-height: 100vh;
+    .container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .number {
+            color: #fff;
+            font-size: 6rem;
+        }
+        .btns-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 5rem;
+            width: 40rem;
+            .increment {
+                background-color: #141517;
+                border-radius: 100px;
+                color: #fff;
+                cursor: pointer;
+                font-size: 2rem;
+                padding: 10px 20px;
+            }
+            .decrement {
+                background-color: #141517;
+                border-radius: 100px;
+                color: #fff;
+                cursor: pointer;
+                font-size: 2rem;
+                padding: 10px 20px;
+            }
+        }
+    }
+}
