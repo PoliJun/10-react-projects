@@ -732,7 +732,6 @@ function App() {
 
 ## Props transfer through components
 
-
 ### Prop Drilling
 
 Prop drilling is the process of passing props from a parent component to a deeply nested child component.
@@ -761,7 +760,56 @@ const ComponentB = ({ name }) => {
 
 ### Context API
 
-```jsx
-import React, { createContext, useContext } from "react";
+The Context API is a way to share data between components without having to pass props down manually at every level.
 
-const UserContext = createContext();
+Steps:
+
+1. Create a context
+    > `const UserContext = createContext();`
+2. Provide a context value
+    > `<UserContext.Provider value={{ user, setUser }}>`
+3. Consume the context value
+    > `const { user, setUser } = useContext(UserContext);`
+4. \*Update the context value
+    > `setUser("Doe");`
+5. \*Remove the context value
+    > `<UserContext.Provider value={null}>`
+
+```jsx
+// App
+import React, { createContext, useState } from "react";
+import ComponentA from "./ComponentA";
+
+export const UserContext = createContext();
+
+const App = () => {
+    const [user, setUser] = useState("John");
+
+    return (
+        <UserContext.Provider value={{ user, setUser }}>
+            <ComponentA />
+        </UserContext.Provider>
+    );
+};
+
+// ComponentA
+import ComponentB from "./ComponentB";
+
+const ComponentA = () => {
+    return <ComponentB />;
+};
+
+// ComponentB
+import { UserContext } from "./App";
+
+const ComponentB = () => {
+    const { user, setUser } = useContext(UserContext);
+
+    return (
+        <div>
+            <h1>{user}</h1>
+            <button onClick={() => setUser("Doe")}>Change User</button>
+        </div>
+    );
+};
+```
