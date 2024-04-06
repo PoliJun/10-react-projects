@@ -121,12 +121,13 @@ function App() {
     );
 }
 ```
+
 notice the `key`.
 
 Here, you just use `()`. Every time there is a curly braces in function, we need to return something.
 
 example:
-    
+
 ```jsx
 function App() {
     const names = ["John", "Doe", "Jane"];
@@ -141,4 +142,28 @@ function App() {
 ```
 
 You need `return` keyword in the function.
+
+## Props/Properties
+
+- Props are arguments passed into React components
+- via HTML attributes
+- Props are read-only
+
+```jsx
+function App(props) {
+    return <h1>Hello, {props.name}</h1>;
+}
+
+ReactDOM.render(<App name="John" />, document.getElementById("root"));
+```
+
+Or use destructuring
+
+```jsx
+function App({ name }) {
+    return <h1>Hello, {name}</h1>;
+}
+
+ReactDOM.render(<App name="John" />, document.getElementById("root"));
+```
 
