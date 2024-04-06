@@ -121,3 +121,24 @@ function App() {
     );
 }
 ```
+notice the `key`.
+
+Here, you just use `()`. Every time there is a curly braces in function, we need to return something.
+
+example:
+    
+```jsx
+function App() {
+    const names = ["John", "Doe", "Jane"];
+    return (
+        <ul>
+            {names.map((name, index) => {
+                return <li key={index}>{name}</li>;
+            })}
+        </ul>
+    );
+}
+```
+
+You need `return` keyword in the function.
+
