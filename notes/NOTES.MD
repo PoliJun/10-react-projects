@@ -761,3 +761,7 @@ const ComponentB = ({ name }) => {
 
 ### Context API
 
+```jsx
+import React, { createContext, useContext } from "react";
+
+const UserContext = createContext();
