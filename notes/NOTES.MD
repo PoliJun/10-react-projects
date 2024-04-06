@@ -578,3 +578,52 @@ function App() {
     );
 }
 ```
+
+### Form
+
+```jsx
+import React, { useState } from "react";
+
+function App() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert(`Name: ${name}, Email: ${email}`);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            />
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            <button type="submit">Submit</button>
+        </form>
+    );
+}
+```
+
+**Notice:**
+
+if
+
+```jsx
+<input
+    type="text"
+    placeholder="Name"
+    value="something"
+    onChange={(e) => setName(e.target.value)}
+/>
+```
+
+The input will be read-only. Because the `value` is hard-coded.
