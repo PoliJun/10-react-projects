@@ -497,4 +497,84 @@ function App() {
 }
 ```
 
+#### `useState` with array (array destructuring)
 
+```jsx
+import React, { useState } from "react";
+
+function App() {
+    const [items, setItems] = useState([]);
+
+    const addItem = () => {
+        setItems([...items, items.length + 1]);
+    };
+
+    return (
+        <div>
+            <button onClick={addItem}>Add Item</button>
+            <ul>
+                {items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+```
+
+with filter method
+
+```jsx
+import React, { useState } from "react";
+
+function App() {
+    const [items, setItems] = useState([]);
+
+    const addItem = () => {
+        setItems([...items, items.length + 1]);
+    };
+
+    const removeItem = (index) => {
+        setItems(items.filter((item, i) => i !== index));
+    };
+
+    return (
+        <div>
+            <button onClick={addItem}>Add Item</button>
+            <ul>
+                {items.map((item, index) => (
+                    <li key={index}>
+                        {item}{" "}
+                        <button onClick={() => removeItem(index)}>
+                            Remove
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+```
+
+#### `useState` with object (object destructuring)
+
+```jsx
+import React, { useState } from "react";
+
+function App() {
+    const [person, setPerson] = useState({ name: "John", age: 30 });
+
+    const updatePerson = () => {
+        setPerson({ ...person, age: person.age + 1 });
+    };
+
+    return (
+        <div>
+            <h1>
+                {person.name} is {person.age} years old
+            </h1>
+            <button onClick={updatePerson}>Update Age</button>
+        </div>
+    );
+}
+```
