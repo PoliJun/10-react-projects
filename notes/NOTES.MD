@@ -183,4 +183,52 @@ function Child({ children }) {
 }
 ```
 
-## 
+## Conditional Rendering
+
+### if-else
+
+```jsx
+function App({ user }) {
+    if (user) {
+        return <h1>Hello, {user}</h1>;
+    } else {
+        return <h1>Hello, Guest</h1>;
+    }
+}
+```
+
+### ternary operator
+
+```jsx
+function App({ user }) {
+    return <h1>Hello, {user ? user : "Guest"}</h1>;
+}
+```
+
+### logical && operator
+
+```jsx
+function App({ user }) {
+    return <h1>Hello, {user && user}</h1>;
+}
+```
+
+Explain: If the user is not null, then render the user. If the user is null, then render nothing.
+This is because the logical AND operator (&&) returns the last value if all values are truthy. If any value is falsy, it returns the first falsy value.
+
+### switch case
+
+```jsx
+function App({ user }) {
+    switch (user) {
+        case "John":
+            return <h1>Hello, John</h1>;
+        case "Doe":
+            return <h1>Hello, Doe</h1>;
+        default:
+            return <h1>Hello, Guest</h1>;
+    }
+}
+```
+
+**Summary:** Ampersand is used to render the last value if all values are truthy. If any value is falsy, it returns the first falsy value. This is popular for conditional rendering.
