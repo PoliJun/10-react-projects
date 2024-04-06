@@ -145,9 +145,9 @@ You need `return` keyword in the function.
 
 ## Props/Properties
 
-- Props are arguments passed into React components
-- via HTML attributes
-- Props are read-only
+-   Props are arguments passed into React components
+-   via HTML attributes
+-   Props are read-only
 
 ```jsx
 function App(props) {
@@ -157,7 +157,7 @@ function App(props) {
 ReactDOM.render(<App name="John" />, document.getElementById("root"));
 ```
 
-Or use destructuring
+### Or use destructuring
 
 ```jsx
 function App({ name }) {
@@ -167,3 +167,20 @@ function App({ name }) {
 ReactDOM.render(<App name="John" />, document.getElementById("root"));
 ```
 
+### children prop
+
+```jsx
+function Parent() {
+    return (
+        <Child>
+            <p>Children</p>
+        </Child>
+    );
+}
+
+function Child({ children }) {
+    return <div>{children}</div>;
+}
+```
+
+## 
