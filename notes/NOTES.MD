@@ -439,3 +439,60 @@ function App() {
 ```
 
 In this modified code, `handleClick` now takes an additional `event` parameter, and the `onClick` handler passes the `event` object to `handleClick`.
+
+## Hooks
+
+Hooks are added in React 16.8. They allow you to use state and other React features without writing a class.
+Before hooks, you could only use state in class components.
+
+example of using state in class components:
+
+```jsx
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0,
+        };
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>{this.state.count}</h1>
+                <button
+                    onClick={() =>
+                        this.setState({ count: this.state.count + 1 })
+                    }>
+                    Increment
+                </button>
+            </div>
+        );
+    }
+}
+```
+
+### State
+
+-   State is a built-in object in React that stores component-specific data
+-   State is mutable
+-   Whenever the state changes, the component re-renders
+
+#### `useState`
+
+`useState` is a hook that allows you to add state to functional components.
+
+```jsx
+import React, { useState } from "react";
+
+function App() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+}
+```
