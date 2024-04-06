@@ -96,6 +96,28 @@ function App() {
 ```jsx
 function App() {
     const name = "John Doe";
-    return <h1>Hello {name}</h1>;
+
+    return (
+        <h1>
+            Hello {name}, {multiply(4, 4)}
+        </h1>
+    );
+}
+```
+
+## Lists
+
+use map to render a list of items
+
+```jsx
+function App() {
+    const names = ["John", "Doe", "Jane"];
+    return (
+        <ul>
+            {names.map((name, index) => (
+                <li key={index}>{name}</li>
+            ))}
+        </ul>
+    );
 }
 ```
