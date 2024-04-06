@@ -852,3 +852,96 @@ function AnotherComponent() {
 In this example, `AnotherComponent` uses `MyContext.Consumer` to read the current context value from the closest `MyContext.Provider` above it in the tree.
 
 However, in your provided code, the `useContext` Hook is being used, which is a simpler way to consume context that doesn't require a `Consumer` component. The `useContext` Hook takes a context object as an argument and returns the current context value, just like `Context.Consumer`.
+
+### `useReducer`
+
+**Intro:** `useReducer` is a hook that is used for state management in React. It is an alternative to `useState` that allows you to manage more complex state logic in your components.
+
+**Syntax:**
+
+```jsx
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+**Parameters:**
+
+-   `reducer`: A function that takes the current state and an action as arguments and returns the new state.
+-   `initialState`: The initial state of the reducer.
+
+**Example:**
+
+```jsx
+import React, { useReducer } from "react";
+
+const initialState = { count: 0 };
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "increment":
+            return { count: state.count + 1 };
+        case "decrement":
+            return { count: state.count - 1 };
+        default:
+            return state;
+    }
+};
+
+function Counter() {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    return (
+        <div>
+            <h1>{state.count}</h1>
+            <button onClick={() => dispatch({ type: "increment" })}>
+                Increment
+            </button>
+            <button onClick={() => dispatch({ type: "decrement" })}>
+                Decrement
+            </button>
+        </div>
+    );
+}
+
+export default Counter;
+```
+
+**Example in TypeScript:**
+
+```tsx
+import React, { useReducer } from "react";
+
+type State = { count: number };
+
+type Action = { type: "increment" } | { type: "decrement" };
+
+const initialState: State = { count: 0 };
+
+const reducer = (state: State, action: Action): State => {
+    switch (action.type) {
+        case "increment":
+            return { count: state.count + 1 };
+        case "decrement":
+            return { count: state.count - 1 };
+        default:
+            return state;
+    }
+};
+
+function Counter() {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    return (
+        <div>
+            <h1>{state.count}</h1>
+            <button onClick={() => dispatch({ type: "increment" })}>
+                Increment
+            </button>
+            <button onClick={() => dispatch({ type: "decrement" })}>
+                Decrement
+            </button>
+        </div>
+    );
+}
+
+export default Counter;
+```
