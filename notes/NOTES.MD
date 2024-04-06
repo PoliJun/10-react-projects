@@ -579,7 +579,7 @@ function App() {
 }
 ```
 
-### Form
+#### Handle Change (onChange)
 
 ```jsx
 import React, { useState } from "react";
@@ -627,3 +627,105 @@ if
 ```
 
 The input will be read-only. Because the `value` is hard-coded.
+
+### `useEffect`
+
+`useEffect` is a hook that allows you to perform side effects in functional components.
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+function App() {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        document.title = `Count: ${count}`;
+    }, [count]);
+
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+}
+```
+
+**Explanation of "side effect"**
+
+A side effect is any change in the application state that is observable outside the function being called. Side effects include things like changing the document title, fetching data from an API, or setting up event listeners.
+
+#### dependency array
+
+The second argument to `useEffect` is an array of dependencies. If the dependencies change, the effect will run again.
+
+1. Render for the first time
+    > If you provide an empty dependency array to useEffect, the effect will only run once after the initial render. This is similar to componentDidMount in a class component.
+2. Anytime we do(side effect)
+    > If you don't provide a dependency array to useEffect, the effect will run after every render, including re-renders caused by state or prop changes. This is similar to combining componentDidMount and componentDidUpdate in a class component.
+3. Dependency list changes
+
+#### `useEffect` can't be called conditionally
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+function App() {
+    const [count, setCount] = useState(0);
+    const [name, setName] = useState("");
+
+    if (count === 5) {
+        useEffect(() => {
+            alert("Count is 5");
+        }, []);
+    } // This will not work
+
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            />
+        </div>
+    );
+}
+```
+
+**Error:** React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render.
+
+**Solution:** Move the conditional logic inside the `useEffect` hook.
+
+#### Fetch data with `useEffect`
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+function App() {
+    const [data, setData] = useState([]);
+
+    const getData = async () => {
+        const response = await fetch(
+            "https://jsonplaceholder.typicode.com/post",
+        );
+        const data = await response.json();
+        if (data && data.length) setData(data);
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    return (
+        <div>
+            <ul>
+                {data.map((user) => (
+                    <li key={user.id}>{user.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+```
