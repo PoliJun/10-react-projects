@@ -11,13 +11,13 @@
 
         .value {
             border: none;
+            caret-color: transparent;
             font-size: 18px;
             grid-column: span 4;
             height: 100px;
             outline: none;
             padding: 10px;
             text-align: right;
-            caret-color: transparent;
         }
 
         span {
