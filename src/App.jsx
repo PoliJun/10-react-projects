@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
 import CalculatorPage from "./pages/CalculatorPage";
 import CounterPage from "./pages/CounterPage";
 import MealsPage from "./pages/MealsPage";
@@ -11,12 +12,46 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<CounterPage />} />
-          <Route path="/counter" element={<CounterPage />} />
-          <Route path="/todo" element={<TodoPage />} />
-          <Route path="/meals" element={<MealsPage />} />
-          <Route path="/calculator" element={<CalculatorPage />} />
-          <Route path="/color" element={<ToggleColorPage />} />
+          <Route
+            path="/counter"
+            element={
+              <Layout>
+                <CounterPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/todo"
+            element={
+              <Layout>
+                <TodoPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/meals"
+            element={
+              <Layout>
+                <MealsPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/calculator"
+            element={
+              <Layout>
+                <CalculatorPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/color"
+            element={
+              <Layout>
+                <ToggleColorPage />
+              </Layout>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>

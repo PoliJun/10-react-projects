@@ -1,5 +1,4 @@
 import "../styles/Calculator.scss";
-// import "../styles/Cal.css";
 
 const Calculator = ({ inputValue, setInputValue }) => {
   function display(value) {

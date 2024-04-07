@@ -3,9 +3,23 @@
     margin: 0;
     padding: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
 
-header{
-    position: sticky;
-    top:0;
+header {
     background-color: #9bb469;
+    display: flex;
+    gap: 1rem;
+    grid-column: auto;
+    height: 50px;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    a {
+        text-decoration: none;
+    }
 }
