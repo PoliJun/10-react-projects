@@ -1,0 +1,21 @@
+.hsb-root {
+    section {
+        align-items: center;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        transition: 0.7s ease;
+
+        input {
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 2px;
+            box-shadow: 2px 2px 2px 1px rgb(35, 35, 35);
+            color: #fff;
+            outline: none;
+            padding: 13px 12px;
+        }
+    }
+}
