@@ -1,0 +1,36 @@
+.meals-root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+
+    .card {
+        background-color: rgb(255, 249, 249);
+        color: rgb(68, 68, 68);
+        cursor: pointer;
+        font-size: 12px;
+        margin: 10px;
+        padding: 30px;
+        transition: 1s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        .content {
+            display: flex;
+            font-family: sans-serif;
+            justify-content: space-between;
+            margin-top: 20px;
+
+            p {
+                font-weight: bold;
+            }
+        }
+
+        img {
+            border-radius: 5px;
+            height: 200px;
+        }
+    }
+}
