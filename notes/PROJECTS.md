@@ -83,3 +83,45 @@ In your code, `backgroundColor` and `textColor` are variables that hold the valu
 However, CSS properties like `background-color` that contain a hyphen are not valid identifiers in JavaScript. Therefore, they must be written in camelCase when used in inline styles in JSX. So, `background-color` becomes `backgroundColor`.
 
 So, in your case, `backgroundColor` is the JavaScript-friendly name for the CSS `background-color` property, and the value of `backgroundColor` is coming from the `backgroundColor` variable.
+
+## Project 6: HiddenSearchBar
+
+-   flag to show/hide search bar
+-   onClick setting tricks:
+
+    > both parent element and child element have onClick, add logic check `e.target.className` in parent. If it is child clicked, then do nothing.
+    >
+    > ```jsx
+    > import { useState } from "react";
+    > import { FaSearch } from "react-icons/fa";
+    > import "../styles/HiddenSearchBar.scss";
+    >
+    > const HiddenSearchBar = () => {
+    >     const [showInput, setShowInput] = useState(false);
+    >     const [bgColor, setBgColor] = useState("white");
+    >
+    >     const handleClick = (e) => {
+    >         setBgColor("#1a1a1a");
+    >         if (e.target.className === "hsb-container") {
+    >             setShowInput(false);
+    >             setBgColor("#fff");
+    >         }
+    >     };
+    >
+    >     return (
+    >         <div className="hsb-root">
+    >             <section
+    >                 className="hsb-container"
+    >                 style={{ backgroundColor: bgColor }}
+    >                 onClick={handleClick}>
+    >                 {showInput ? (
+    >                     <input type="text" placeholder="Search..." />
+    >                 ) : (
+    >                     <FaSearch onClick={() => setShowInput(true)} />
+    >                 )}
+    >             </section>
+    >         </div>
+    >     );
+    > };
+    > export default HiddenSearchBar;
+    > ```

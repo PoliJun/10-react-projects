@@ -16,12 +16,17 @@ const HiddenSearchBar = () => {
 
   return (
     <div className="hsb-root">
-    <section
-      className="hsb-container"
-      style={{ backgroundColor: bgColor }}
-      onClick={handleClick}>
-      {showInput ? <input type="text" placeholder="Search..." /> : <FaSearch onClick={()=>setShowInput(true)}/>}
-    </section></div>
+      <section
+        className="hsb-container"
+        style={{ backgroundColor: bgColor }}
+        onClick={handleClick}>
+        {showInput ? (
+          <input type="text" placeholder="Search..." />
+        ) : (
+          <FaSearch onClick={() => setShowInput(true)} />
+        )}
+      </section>
+    </div>
   );
 };
 export default HiddenSearchBar;
