@@ -8,6 +8,7 @@ import ToggleColorPage from "./pages/ToggleColorPage";
 import HiddenSearchBar from "./pages/HiddenSearchBar";
 import "./styles/App.scss";
 import Testimonials from "./components/Testimonials";
+import AccordionPage from "./pages/AccordionPage";
 
 function App() {
   return (
@@ -75,6 +76,14 @@ function App() {
             element={
               <Layout>
                 <Testimonials />
+              </Layout>
+            }
+          />
+          <Route
+            path="/accordion"
+            element={
+              <Layout>
+                <AccordionPage />
               </Layout>
             }
           />

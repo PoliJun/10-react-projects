@@ -5,7 +5,6 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <div className="l-container">{children}</div>
-      
     </>
   );
 };
