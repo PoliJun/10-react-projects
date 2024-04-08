@@ -7,6 +7,7 @@ import TodoPage from "./pages/TodoPage";
 import ToggleColorPage from "./pages/ToggleColorPage";
 import HiddenSearchBar from "./pages/HiddenSearchBar";
 import "./styles/App.scss";
+import Testimonials from "./components/Testimonials";
 
 function App() {
   return (
@@ -66,6 +67,14 @@ function App() {
             element={
               <Layout>
                 <HiddenSearchBar />
+              </Layout>
+            }
+          />
+          <Route
+            path="/testimonials"
+            element={
+              <Layout>
+                <Testimonials />
               </Layout>
             }
           />

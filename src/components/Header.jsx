@@ -10,6 +10,7 @@ const Header = () => {
       <Link to={"/color"}>COLOR</Link>
       <Link to={"/color"}>Toggle Color</Link>
       <Link to={"/search-bar"}>Hidden Search Bar</Link>
+      <Link to={"/testimonials"}>Testimonials</Link>
     </header>
   );
 };
