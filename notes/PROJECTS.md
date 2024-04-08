@@ -125,3 +125,63 @@ So, in your case, `backgroundColor` is the JavaScript-friendly name for the CSS 
     > };
     > export default HiddenSearchBar;
     > ```
+
+## Project 7: Testimonials
+
+-   `useState` to change the index of the array
+
+-   Tricks to change the index of the array:
+
+`%` operation, wrap around the array
+
+```js
+const handlePrev = () => {
+    setCurrentIndex(
+        (currentIndex - 1 + testimonials.length) % testimonials.length,
+    );
+};
+
+const handleNext = () => {
+    setCurrentIndex((currentIndex + 1) % testimonials.length);
+};
+```
+
+-   CSS design:
+
+CSS design. I want body min-width: 100vh; , then Header at the top, and .l-container keep the rest height.
+
+```css
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    /* your existing styles */
+}
+
+.l-container {
+    flex-grow: 1;
+    /* your existing styles */
+}
+```
+
+### `flex-grow`
+
+The `flex-grow` property in CSS is a sub-property of the Flexible Box Layout module, commonly known as Flexbox. It defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.
+
+If all items have `flex-grow` set to 1, every child will set to an equal size inside the container. If you were to give one of the children a value of 2, that child would take up twice as much space as the others.
+
+In your code:
+
+```scss
+.l-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+}
+```
+
+The `flex-grow: 1;` means that the `.l-container` element will take up any remaining space in its flex container. If there are other flex items in the same container with `flex-grow: 1;`, the space will be distributed equally among them. If there are no other flex items, `.l-container` will take up all the remaining space.
