@@ -9,6 +9,7 @@ import HiddenSearchBar from "./pages/HiddenSearchBar";
 import "./styles/App.scss";
 import Testimonials from "./components/Testimonials";
 import AccordionPage from "./pages/AccordionPage";
+import FormValidationPage from "./pages/FormValidationPage";
 
 function App() {
   return (
@@ -84,6 +85,14 @@ function App() {
             element={
               <Layout>
                 <AccordionPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/form"
+            element={
+              <Layout>
+                <FormValidationPage />
               </Layout>
             }
           />

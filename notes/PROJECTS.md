@@ -200,4 +200,84 @@ The `flex-grow: 1;` means that the `.l-container` element will take up any remai
 
     Explanation: In React, when rendering a list of components using `map`, each component should have a unique `key` prop. This helps React efficiently update the list when items are added, removed, or reordered. In your code, you are mapping over the `accordionData` array and rendering an `Accordion` component for each item. By providing a unique `key` prop based on the `index` of each item, you ensure that React can keep track of each component correctly.
 
-### 
+## Project 9: Form Validation
+
+### States pattern
+
+1. input value
+2. error message
+3. borderColor: to show error message
+
+```jsx
+const [username, setUsername] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [confirmPassword, setConfirmPassword] = useState("");
+
+const [errorUsername, setErrorUsername] = useState("");
+const [errorEmail, setErrorEmail] = useState("");
+const [errorPassword, setErrorPassword] = useState("");
+const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
+
+const [userColor, setUserColor] = useState("");
+const [emailColor, setEmailColor] = useState("");
+const [passwordColor, setPasswordColor] = useState("");
+const [confirmPasswordColor, setConfirmPasswordColor] = useState("");
+```
+
+### onChange to update input value
+
+```jsx
+<input
+  type="text"
+  placeholder="Name"
+  style={{ borderColor: userColor }}
+  value={username}
+  onChange={(e) => {
+    setUsername(e.target.value);
+  }}
+/>
+<p className="error">{errorUsername}</p>
+```
+
+### Validation
+
+#### button in form
+
+**Yes, in HTML, a `<button>` element inside a `<form>` element defaults to the type "submit". This means that when the button is clicked, it will trigger the form's submit event.**
+
+In your code:
+
+```jsx
+<button className="submit-btn" onClick={validate}>
+    Submit
+</button>
+```
+
+The button will trigger the form's submit event when clicked. However, you're also attaching an `onClick` event handler to the button, which will call the `validate` function when the button is clicked.
+
+If you want to prevent the form from being submitted when the button is clicked (for example, if the form is not valid), you can call `event.preventDefault()` in the `validate` function:
+
+```jsx
+const validate = (event) => {
+    event.preventDefault();
+    // rest of your validation logic
+};
+```
+
+This will prevent the form from being submitted, which is the default action of the submit event.
+
+#### Validation logic
+
+```jsx
+const validate = (e) => {
+    e.preventDefault();
+    if (username === "") {
+        setErrorUsername("Username cannot be empty");
+        setUserColor("red");
+    } else {
+        setErrorUsername("");
+        setUserColor("green");
+    }
+};
+```

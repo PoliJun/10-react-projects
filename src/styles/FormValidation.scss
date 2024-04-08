@@ -1,0 +1,56 @@
+.fv-root {
+    align-items: center;
+    background-image: linear-gradient(to right, #fff7c8 0%, #fa709a 100%);
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+
+    .card {
+        background: #f3fffe;
+        box-shadow: 0.5px 0.5px 1px 1px rgb(255, 255, 223);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 30rem;
+        width: 50rem;
+
+        .card-image {
+            background: url("https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+            background-position: center;
+            background-size: cover;
+        }
+
+        form {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            input {
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                margin: 5px;
+                outline: none;
+                padding: 10px 10px;
+                width: 20rem;
+            }
+
+            .error {
+                color: red;
+                font-family: sans-serif;
+            }
+
+            .submit-btn {
+                background: transparent;
+                background: rgb(255, 90, 123);
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                font-weight: bold;
+                margin-top: 20px;
+                padding: 10px 20px;
+                width: 80%;
+            }
+        }
+    }
+}
