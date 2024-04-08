@@ -7,20 +7,32 @@ html {
     scroll-behavior: smooth;
 }
 
-header {
-    align-items: center;
-    background-color: #9bb469;
+#root {
     display: flex;
-    gap: 1rem;
-    grid-column: auto;
-    height: 50px;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+    flex-direction: column;
+    min-height: 100vh;
 
-    a {
-        text-decoration: none;
+    header {
+        align-items: center;
+        background-color: #9bb469;
+        display: flex;
+        gap: 1rem;
+        grid-column: auto;
+        height: 50px;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+
+        a {
+            text-decoration: none;
+        }
+    }
+    .l-container {
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 }
