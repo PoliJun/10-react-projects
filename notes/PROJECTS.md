@@ -185,3 +185,19 @@ In your code:
 ```
 
 The `flex-grow: 1;` means that the `.l-container` element will take up any remaining space in its flex container. If there are other flex items in the same container with `flex-grow: 1;`, the space will be distributed equally among them. If there are no other flex items, `.l-container` will take up all the remaining space.
+
+## Project 8: Accordion
+
+### Unique key for each item
+
+    ```jsx
+    {
+        accordionData.map(({ title, content }, index) => (
+            <Accordion key={index} title={title} content={content} />
+        ));
+    }
+    ```
+
+    Explanation: In React, when rendering a list of components using `map`, each component should have a unique `key` prop. This helps React efficiently update the list when items are added, removed, or reordered. In your code, you are mapping over the `accordionData` array and rendering an `Accordion` component for each item. By providing a unique `key` prop based on the `index` of each item, you ensure that React can keep track of each component correctly.
+
+### 
