@@ -1,0 +1,16 @@
+.recommended {
+    display: flex;
+    justify-content: space-around;
+
+    .recommended-flex {
+        display: flex;
+        margin-left: 20rem;
+    }
+
+    .recommended-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-left: 20rem;
+        margin-top: 20px;
+    }
+}

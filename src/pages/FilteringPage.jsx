@@ -5,6 +5,7 @@ import Sidebar from "../components/advanced-filtering/SideBar";
 import Navigation from "../components/advanced-filtering/Navigation";
 import Recommended from "../components/advanced-filtering/Recommend";
 import Products from "../components/advanced-filtering/Products";
+import "../styles/Filtering.scss";
 
 function FilteringPage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
