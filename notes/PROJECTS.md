@@ -281,3 +281,50 @@ const validate = (e) => {
     }
 };
 ```
+
+## Project 10: Advanced Filter
+
+### Filter logic
+
+```jsx
+function filteredData(products, selected, query) {
+    let filteredProducts = products;
+
+    // Filtering Input Items
+    if (query) {
+        filteredProducts = filteredItems;
+    }
+
+    // Applying selected filter
+    if (selected) {
+        filteredProducts = filteredProducts.filter(
+            ({ category, color, company, newPrice, title }) =>
+                category === selected ||
+                color === selected ||
+                company === selected ||
+                newPrice === selected ||
+                title === selected,
+        );
+    }
+
+    return filteredProducts.map(
+        ({ img, title, star, reviews, prevPrice, newPrice }) => (
+            <Card
+                key={Math.random()}
+                img={img}
+                title={title}
+                star={star}
+                reviews={reviews}
+                prevPrice={prevPrice}
+                newPrice={newPrice}
+            />
+        ),
+    );
+}
+```
+
+Every time the filter changes, the `filteredData` function is called with the updated filter values. The function first sets the `filteredProducts` variable to the original list of products. Then, it applies the search query filter if a query is present. Finally, it applies the selected filter if a filter option is chosen.
+
+So, use `||` to check if any of the properties match the selected filter value. If any of the properties match, the item is included in the filtered list.
+
+The state is updated every time the filter changes, causing the component to re-render with the updated filtered list of products.
