@@ -10,6 +10,7 @@ import "./styles/App.scss";
 import Testimonials from "./components/Testimonials";
 import AccordionPage from "./pages/AccordionPage";
 import FormValidationPage from "./pages/FormValidationPage";
+import FilteringPage from "./pages/FilteringPage";
 
 function App() {
   return (
@@ -93,6 +94,14 @@ function App() {
             element={
               <Layout>
                 <FormValidationPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/filtering"
+            element={
+              <Layout>
+                <FilteringPage />
               </Layout>
             }
           />
