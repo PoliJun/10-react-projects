@@ -4,11 +4,11 @@ import Recommend from "../components/advanced-filtering/Recommend";
 
 const FilteringPage = () => {
   return (
-    <>
+    <div className="filtering-root">
       <Nav />
       <Products />
       <Recommend />
-    </>
+    </div>
   );
 };
 export default FilteringPage;
